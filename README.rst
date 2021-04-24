@@ -1,5 +1,5 @@
 ====================
-GCloud config helper
+gcloud config helper
 ====================
 
 
@@ -20,4 +20,3 @@ obtain Google GCloud configuration credentials
 
 
 * Free software: Apache Software License 2.0
-* Documentation: https://gcloud-config-helper.readthedocs.io.
