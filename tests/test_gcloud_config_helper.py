@@ -7,7 +7,6 @@ import unittest
 from gcloud_config_helper import GCloudCredentials
 from datetime import datetime, timedelta
 from copy import deepcopy
-from pytz import utc
 
 
 class MyGCloudCredentials(GCloudCredentials):
@@ -52,8 +51,8 @@ class TestGcloud_config_helper(unittest.TestCase):
         self.assertEqual(c.expiry, c.token_expiry)
         self.assertTrue(c.expired)
 
-        new_expiry = f"{(datetime.utcnow() + timedelta(hours = 1)).isoformat()}+00:00"
-        c.config["credential"]["token_expiry"] = new_expiry
+        new_expiry = datetime.utcnow() + timedelta(hours=1)
+        c.config["credential"]["token_expiry"] = f"{new_expiry.isoformat()}+00:00"
         c.config["credential"]["access_token"] = "new-secret"
 
         self.assertNotEqual(c.token, c.access_token)

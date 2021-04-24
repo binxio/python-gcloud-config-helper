@@ -105,7 +105,8 @@ def on_path() -> bool:
 
 def default() -> (Credentials, Optional[str]):
     """
-    returns the current credentials and configured project in the gcloud active configuration
+    returns the current credentials and configured project in the
+    gcloud active configuration
     """
     c = GCloudCredentials()
     return c, c.project
