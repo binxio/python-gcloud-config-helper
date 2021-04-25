@@ -44,6 +44,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/binxio/python_gcloud_config_helper',
-    version='version='0.1.0'',
+    version='version='version='0.1.0''',
     zip_safe=False,
 )
