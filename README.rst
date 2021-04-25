@@ -7,6 +7,7 @@ the google APIs.
 The library provides the class GCloudCredentials which wraps the `gcloud config config-helper` command.
 
 To use::
+
     import gcloud_config_helper
     credentials, project = gcloud_config_helper.default()
 
