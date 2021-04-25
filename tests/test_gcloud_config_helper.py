@@ -25,7 +25,7 @@ class TestGcloud_config_helper(unittest.TestCase):
         self.creds = MyGCloudCredentials(
             {
                 "configuration": {
-                    "active_configuration": "default",
+                    "active_configuration": "binx.io",
                     "properties": {
                         "core": {
                             "account": "mvanholsteijn@binx.io",
@@ -41,6 +41,9 @@ class TestGcloud_config_helper(unittest.TestCase):
                 },
             }
         )
+
+    def testCorrectName(self):
+        self.assertEqual(self.creds.name, "binx.io")
 
     def testCorrectToken(self):
         self.assertEqual(self.creds.token, "secret-access-token")

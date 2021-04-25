@@ -17,21 +17,34 @@ class GCloudCredentials(Credentials):
 
     def __init__(self, name: str = ""):
         super(GCloudCredentials, self).__init__()
-        self.config = {}
-        self.name = name
+        self.config: Dict = {}
+        self._name: str = name
         self.token: Optional[str] = None
         self.expiry: Optional[datetime] = None
 
         self.refresh(None)
 
+    @property
+    def name(self) -> str:
+        """
+        of the active gcloud configuration.
+        """
+        return self.config.get("configuration", {}).get(
+            "active_configuration", self._name
+        )
+
     def load(self):
+        """
+        executes the gcloud config config-helper for the configuration with `self._name` and stores the resulting
+        dictionary in `self.config`.
+        """
         process = subprocess.Popen(
             [
                 "gcloud",
                 "config",
                 "config-helper",
                 "--configuration",
-                self.configuration,
+                self._name,
                 "--format",
                 "json",
             ],
@@ -77,8 +90,7 @@ class GCloudCredentials(Credentials):
         the expiration date of the current credential
         """
         exp = self.credential.get("token_expiry")
-        if exp:
-            return isoparse(exp).astimezone(utc).replace(tzinfo=None)
+        return isoparse(exp).astimezone(utc).replace(tzinfo=None) if exp else None
 
     @property
     def access_token(self) -> Optional[str]:
