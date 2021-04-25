@@ -32,13 +32,8 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/binxio/python_gcloud_config_helper
+    $ git clone git://github.com/binxio/python-gcloud-config-helper
 
-Or download the `tarball`_:
-
-.. code-block:: console
-
-    $ curl -OJL https://github.com/binxio/python_gcloud_config_helper/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -48,4 +43,3 @@ Once you have a copy of the source, you can install it with:
 
 
 .. _Github repo: https://github.com/binxio/python_gcloud_config_helper
-.. _tarball: https://github.com/binxio/python_gcloud_config_helper/tarball/master
