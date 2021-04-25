@@ -22,7 +22,7 @@ Next you can pass these credentials in when constructing an API client::
 Note that Google documentation states that `gcloud config config-helper` should be regarded as an
 unstable interface.
 
-if you want, you can use the `gcloud_config_helper.on_path()` to determine to use gcloud or the 
+if you want, you can use the `gcloud_config_helper.on_path()` to determine to use gcloud or the
 default credentials::
 
     if google_config_helper.on_path():
@@ -35,8 +35,8 @@ default credentials::
 .. image:: https://img.shields.io/pypi/v/gcloud_config_helper.svg
         :target: https://pypi.python.org/pypi/gcloud_config_helper
 
-.. image:: https://img.shields.io/travis/binxio/python_gcloud_config_helper.svg
-        :target: https://travis-ci.com/binxio/python_gcloud_config_helper
+.. image:: https://img.shields.io/travis/binxio/python-gcloud-config-helper.svg
+        :target: https://travis-ci.com/binxio/python-gcloud-config-helper
 
 .. image:: https://readthedocs.org/projects/gcloud-config-helper/badge/?version=latest
         :target: https://gcloud-config-helper.readthedocs.io/en/latest/?version=latest

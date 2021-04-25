@@ -42,4 +42,4 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/binxio/python_gcloud_config_helper
+.. _Github repo: https://github.com/binxio/python-gcloud-config-helper
