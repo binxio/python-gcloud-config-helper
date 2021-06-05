@@ -6,15 +6,14 @@ from datetime import datetime
 from typing import Dict, Optional
 
 from dateutil.parser import isoparse
-from google.auth.credentials import Credentials
+from google.auth.credentials import Credentials, CredentialsWithQuotaProject
 from pytz import utc
 
 
-class GCloudCredentials(Credentials):
+class GCloudCredentials(CredentialsWithQuotaProject):
     """
     Google gcloud configuration credentials.
     """
-
     def __init__(self, name: str = ""):
         super(GCloudCredentials, self).__init__()
         self.config: Dict = {}
@@ -23,6 +22,11 @@ class GCloudCredentials(Credentials):
         self.expiry: Optional[datetime] = None
 
         self.refresh(None)
+
+    def with_quota_project(self, quota_project_id):
+        result = type(self)(self._name)
+        result._quota_project_id = quota_project_id
+        return result
 
     @property
     def name(self) -> str:
@@ -115,7 +119,7 @@ def on_path() -> bool:
     return shutil.which("gcloud") is not None
 
 
-def default() -> (Credentials, Optional[str]):
+def default() -> (CredentialsWithQuotaProject, Optional[str]):
     """
     returns the current credentials and configured project in the
     gcloud active configuration
