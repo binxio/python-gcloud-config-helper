@@ -42,9 +42,10 @@ class GCloudCredentials(CredentialsWithQuotaProject):
         executes the gcloud config config-helper for the configuration with `self._name` and stores the resulting
         dictionary in `self.config`.
         """
+        gcloud_absolute_path = shutil.which('gcloud')
         process = subprocess.Popen(
             [
-                "gcloud",
+                gcloud_absolute_path,
                 "config",
                 "config-helper",
                 "--configuration",
