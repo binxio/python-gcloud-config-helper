@@ -15,8 +15,9 @@ jobs:
       - name: checkout
         run: git fetch --prune --unshallow
       - name: pipenv
-        run: pip install pipenv && pipenv sync -d 
-        run: make dist
+        run: pip install pipenv && pipenv sync -d
+      - name: make dist
+        run: pipenv run make dist
       - name: distribute application
         uses: pypa/gh-action-pypi-publish@v1.1.0
         with:
